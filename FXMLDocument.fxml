@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="524.0" prefWidth="1028.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="busstation.FXMLDocumentController">
+   <children>
+      <GridPane fx:id="welcome" prefHeight="524.0" prefWidth="1028.0" style="-fx-background-color: #E8E8E8;">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="40.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="40.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" percentHeight="25.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" percentHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" percentHeight="55.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" percentHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label alignment="CENTER" prefHeight="193.0" prefWidth="1028.0" style="-fx-background-color: black;" text="Bus Station System" textAlignment="CENTER" textFill="#2f97ff" GridPane.columnSpan="4">
+               <font>
+                  <Font name="FreeMono Bold" size="50.0" />
+               </font>
+            </Label>
+            <Pane fx:id="customer" onMouseClicked="#custLogin" prefHeight="200.0" prefWidth="200.0" styleClass="pane" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.rowSpan="2">
+               <children>
+                  <ImageView fitHeight="262.0" fitWidth="260.0" layoutX="75.0" layoutY="2.0">
+                     <image>
+                        <Image url="@../images/customer.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" layoutX="55.0" layoutY="283.0" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: lightblue;" text="Customer" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="DejaVu Sans ExtraLight" size="35.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="manager" onMouseClicked="#manLogin" prefHeight="200.0" prefWidth="200.0" styleClass="pane" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.rowSpan="2">
+               <children>
+                  <ImageView fitHeight="262.0" fitWidth="260.0" layoutX="81.0" layoutY="2.0">
+                     <image>
+                        <Image url="@../images/manager.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" layoutX="66.0" layoutY="283.0" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: lightgreen;" text="Manager" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="DejaVu Sans ExtraLight" size="35.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="managerLogin" prefHeight="200.0" prefWidth="200.0" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                  <TextField fx:id="managerUsername" alignment="CENTER" layoutX="27.0" layoutY="31.0" prefHeight="40.0" prefWidth="353.0" promptText="Username" styleClass="txtfield">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </TextField>
+                  <Button fx:id="managerLoginBtn" alignment="CENTER" layoutX="126.0" layoutY="186.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="149.0" style="-fx-background-color: black;" styleClass="btn" text="Log in" textFill="WHITE">
+                     <font>
+                        <Font name="DejaVu Serif Condensed Bold" size="20.0" />
+                     </font>
+                  </Button>
+                  <PasswordField fx:id="managerPassword" alignment="CENTER" layoutX="27.0" layoutY="106.0" prefHeight="42.0" prefWidth="353.0" promptText="Password">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </PasswordField>
+               </children>
+            </Pane>
+            <Pane fx:id="customerLogin" prefHeight="200.0" prefWidth="200.0" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.rowSpan="2">
+               <children>
+                  <TextField fx:id="customerUsername" alignment="CENTER" layoutX="27.0" layoutY="31.0" prefHeight="40.0" prefWidth="353.0" promptText="Username" styleClass="txtfield">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </TextField>
+                  <Button fx:id="customerLoginBtn" alignment="CENTER" layoutX="126.0" layoutY="186.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="149.0" style="-fx-background-color: Black;" styleClass="btn" text="Log in" textFill="WHITE">
+                     <font>
+                        <Font name="DejaVu Serif Condensed Bold" size="20.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="regularCustomerText" layoutX="33.0" layoutY="279.0" onMouseClicked="#regularCustomerFunction" prefHeight="31.0" prefWidth="374.0" text="Not a VIP customer? Continue for a single time trip...." textFill="#0d0d0d" underline="true" />
+                  <PasswordField fx:id="customerPassword" alignment="CENTER" layoutX="27.0" layoutY="109.0" prefHeight="42.0" prefWidth="353.0" promptText="Password">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </PasswordField>
+               </children>
+            </Pane>
+         </children>
+      </GridPane>
+      <GridPane fx:id="managerGP" prefHeight="524.0" prefWidth="1028.0" style="-fx-background-color: #E8E8E8;" visible="false">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="60.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" percentHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" percentHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" percentHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" percentHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="addTripBtn" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="131.0" prefWidth="444.0" style="-fx-background-color: #AEE4F4; -fx-background-radius: 0;" styleClass="manBtns" text="Add Trip" textAlignment="CENTER">
+               <font>
+                  <Font name="FreeMono Bold" size="40.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="addVipBtn" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="131.0" prefWidth="444.0" style="-fx-background-color: #317FDC; -fx-background-radius: 0;" styleClass="manBtns" text="Add VIP Customer" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="4">
+               <font>
+                  <Font name="FreeMono Bold" size="36.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="addDriverBtn" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="131.0" prefWidth="444.0" style="-fx-background-color: #4C96EF; -fx-background-radius: 0;" styleClass="manBtns" text="Add driver" textAlignment="CENTER" GridPane.rowIndex="2">
+               <font>
+                  <Font name="FreeMono Bold" size="40.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="editTBtn" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="131.0" prefWidth="444.0" style="-fx-background-color: #4AC6EF; -fx-background-radius: 0;" styleClass="manBtns" text="Edit Trip" textAlignment="CENTER" GridPane.rowIndex="1">
+               <font>
+                  <Font name="FreeMono Bold" size="40.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="addVehicleBtn" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="131.0" prefWidth="444.0" style="-fx-background-color: #488ADB; -fx-background-radius: 0;" styleClass="manBtns" text="Add Vehicle" textAlignment="CENTER" GridPane.rowIndex="3">
+               <font>
+                  <Font name="FreeMono Bold" size="40.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Pane fx:id="addTripPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #AEE4F4;" GridPane.columnIndex="1" GridPane.rowSpan="5">
+               <children>
+                  <TextField fx:id="tripFrom" layoutX="66.0" layoutY="38.0" prefHeight="42.0" prefWidth="208.0" promptText="From" />
+                  <TextField fx:id="tripTo" layoutX="320.0" layoutY="38.0" prefHeight="42.0" prefWidth="208.0" promptText="To" />
+                  <TextField fx:id="tripPrice" layoutX="158.0" layoutY="323.0" prefHeight="42.0" prefWidth="272.0" promptText="Price" />
+                  <DatePicker fx:id="tripDate" layoutX="70.0" layoutY="151.0" promptText="Date" />
+                  <MenuButton fx:id="tripRounded" layoutX="411.0" layoutY="245.0" mnemonicParsing="false" text="Rounded">
+                    <items>
+                      <MenuItem fx:id="Rounded" mnemonicParsing="false" onAction="#RoundedClick" text="Rounded" />
+                      <MenuItem fx:id="oneway" mnemonicParsing="false" onAction="#onewayClick" text="One-way" />
+                    </items>
+                  </MenuButton>
+                  <MenuButton fx:id="tripInternal" layoutX="237.0" layoutY="246.0" mnemonicParsing="false" text="Internal">
+                     <items>
+                        <MenuItem fx:id="Internal" mnemonicParsing="false" onAction="#InternalClick" text="Internal" />
+                        <MenuItem fx:id="external" mnemonicParsing="false" onAction="#ExternalClick" text="External" />
+                     </items>
+                  </MenuButton>
+                  <MenuButton fx:id="tripVehicle" layoutX="70.0" layoutY="244.0" mnemonicParsing="false" text="MicroBus">
+                     <items>
+                        <MenuItem fx:id="MicroBus" mnemonicParsing="false" onAction="#microBusClick" text="MicroBus" />
+                        <MenuItem fx:id="miniBus" mnemonicParsing="false" onAction="#minBusClick" text="MiniBus" />
+                        <MenuItem fx:id="Bus" mnemonicParsing="false" onAction="#BusClick" text="Bus" />
+                     </items>
+                  </MenuButton>
+                  <Button fx:id="saveTripBtn" layoutX="225.0" layoutY="418.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="42.0" prefWidth="149.0" style="-fx-background-color: darkgrey;" text="Add Trip" textFill="WHITE">
+                     <font>
+                        <Font name="DejaVu Sans Condensed Bold" size="20.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <ComboBox fx:id="tripDriverBox" layoutX="337.0" layoutY="152.0" prefHeight="25.0" prefWidth="180.0" />
+               </children></Pane>
+            <Pane fx:id="editTripPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #4AC6EF;" visible="false" GridPane.columnIndex="1" GridPane.rowSpan="5">
+               <children>
+                  <ListView fx:id="editTripList" layoutX="2.0" layoutY="2.0" prefHeight="302.0" prefWidth="617.0" />
+                  <TextField fx:id="editTripText" layoutX="21.0" layoutY="370.0" prefHeight="31.0" prefWidth="575.0" />
+                  <Button fx:id="editTripBtn" layoutX="208.0" layoutY="427.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="42.0" prefWidth="180.0" style="-fx-background-color: darkgrey;" text="Save Edits" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="editTripListPick" layoutX="250.0" layoutY="324.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: lightgrey;" text="Pick">
+                     <font>
+                        <Font name="DejaVu Sans ExtraLight" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children></Pane>
+            <Pane fx:id="addDriverPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #4C96EF;" visible="false" GridPane.columnIndex="1" GridPane.rowSpan="5">
+               <children>
+                  <TextField fx:id="driverName" layoutX="122.0" layoutY="105.0" prefHeight="42.0" prefWidth="353.0" promptText="Name" />
+                  <Button fx:id="saveDriver" layoutX="197.0" layoutY="343.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="42.0" prefWidth="197.0" style="-fx-background-color: darkgrey;" text="Add Driver" textFill="WHITE">
+                     <font>
+                        <Font name="DejaVu Sans Condensed Bold" size="20.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children></Pane>
+            <Pane fx:id="addVehiclePane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #488ADB;" visible="false" GridPane.columnIndex="1" GridPane.rowSpan="5">
+               <children>
+                  <MenuButton fx:id="chooseVehicle" layoutX="212.0" layoutY="126.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="202.0" text="MicroBus">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#chooseMicroBus" text="MicroBus" />
+                        <MenuItem fx:id="miniBus1" mnemonicParsing="false" onAction="#chooseMinibus" text="MiniBus" />
+                        <MenuItem fx:id="Bus1" mnemonicParsing="false" onAction="#chooseBus" text="Bus" />
+                     </items>
+                  </MenuButton>
+                  <Button layoutX="238.0" layoutY="260.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="149.0" style="-fx-background-color: darkgrey;" text="Add Vehicle" textFill="WHITE">
+                     <font>
+                        <Font name="DejaVu Sans Condensed Bold" size="20.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children></Pane>
+            <Pane fx:id="addVipPane" prefHeight="212.0" prefWidth="617.0" style="-fx-background-color: #317FDC;" visible="false" GridPane.columnIndex="1" GridPane.rowSpan="5">
+               <children>
+                  <Button fx:id="addCustomerBtn" layoutX="187.0" layoutY="371.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="42.0" prefWidth="180.0" style="-fx-background-color: darkgrey;" text="Add Customer" textFill="WHITE">
+                     <font>
+                        <Font name="DejaVu Sans Condensed Bold" size="20.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <TextField fx:id="vipUsername" layoutX="104.0" layoutY="118.0" prefHeight="42.0" prefWidth="353.0" promptText="Username" />
+                  <PasswordField fx:id="vipPassword" layoutX="104.0" layoutY="220.0" prefHeight="42.0" prefWidth="353.0" promptText="Password" />
+               </children></Pane>
+         </children>
+      </GridPane>
+      <GridPane fx:id="customerGP" prefHeight="524.0" prefWidth="1028.0" visible="false">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="50.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ListView fx:id="tripList" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowSpan="2" />
+            <Pane fx:id="tripPane" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="2">
+               <children>
+                  <TextField fx:id="ticketsNum" alignment="CENTER" layoutX="415.0" layoutY="43.0" prefHeight="42.0" prefWidth="79.0" promptText="1" />
+                  <Button fx:id="buyTicket" layoutX="555.0" layoutY="38.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="50.0" prefWidth="202.0" style="-fx-background-color: lightgreen;" text="Buy Tickets" textFill="WHITE">
+                     <font>
+                        <Font name="DejaVu Sans ExtraLight" size="25.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Label layoutX="244.0" layoutY="49.0" prefHeight="31.0" prefWidth="180.0" text="Number of Tickets: ">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="VIP" layoutX="7.0" layoutY="107.0" text="false" visible="false" />
+                  <Label fx:id="buyTripLabel" alignment="CENTER" layoutX="248.0" layoutY="13.0" prefHeight="15.0" prefWidth="489.0" text="Purchase done successfully" textAlignment="CENTER" visible="false" />
+               </children>
+            </Pane>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>

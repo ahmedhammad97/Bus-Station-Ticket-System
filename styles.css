@@ -1,0 +1,29 @@
+.pane:hover{
+    -fx-background-color: lightgrey;
+    -fx-cursor:hand;
+}
+
+#manager{
+    visibility:visible;
+}
+#customer{
+    visibility: visible;
+}
+#managerLogin{
+    visibility: hidden;
+}
+#customerLogin{
+    visibility: hidden;
+}
+
+#regularCustomerText{
+    -fx-cursor: hand;
+}
+
+.btn{
+    -fx-cursor: hand;
+}
+
+.manBtn{
+    -fx-cursor: hand;
+}
